@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" />
+    <title>JS in HTML</title>
+</head>
+<script>
+
+    const changeName = () => {
+        // changes name once on click
+        document.getElementById("alter-text").innerHTML = 'SNEHA';
+    }
+    
+    
+    const renderListofNames = () => {
+
+        // changing alter-text to 'list of names'
+        document.getElementById('alter-text').innerHTML = 'LIST OF NAMES:'
+
+        // Array of names (strings)
+        const nameList = ['Kerryn', 'Sneha', 'Phoebe', 'Marcelle', 'Vishal'];
+        
+        /* loop runs through nameList array and renders the corresponding index value
+        to the relevant p tag with that value */
+        for (let i = 0; i < nameList.length; i++) {
+            document.getElementById(`name-${i}`).innerHTML = nameList[i];
+        }
+    }
+
+    const toggleName = () => {
+
+        /* fetches inner HTML value of alter-text and checks against if/else
+            condition to toggle between texts/colours */
+        let nameText = document.getElementById("alter-text").innerHTML;
+        if (nameText === 'KERRYN') {
+            document.getElementById('alter-text').innerHTML = 'PHOEBE';
+            document.getElementById('alter-text').style.color = 'green';
+        } else if (nameText === 'PHOEBE') {
+            document.getElementById('alter-text').innerHTML = 'KERRYN';
+            document.getElementById('alter-text').style.color = 'blue';
+        } else {
+            /* This is the default catch of all other conditions
+              in case we call renderListofNames and make the text 'LIST OF NAMES:'
+              (which would not be covered under either previous condition  of
+              'KERRYN' OR 'PHOEBE') */
+            document.getElementById('alter-text').innerHTML = 'KERRYN';
+        }
+    }
+</script>
+<body>
+    <h1 class="heading">THIS IS A HEADING</h1>
+
+    <p id="alter-text">KERRYN</p>
+
+    <!-- This is extremely ugly and we'll learn a better way to render these 
+    p tags when you get to react :) -->
+    <div id="hide">
+        <p id="name-0"></p>
+        <p id='name-1'></p>
+        <p id="name-2"></p>
+        <p id="name-3"></p>
+        <p id="name-4"></p>
+    </div>
+
+    <button onclick="changeName()">CHANGE NAME TO SNEHA</button>
+    <button onclick="renderListofNames()">RENDER LIST OF NAMES</button>
+    <button onclick="toggleName()">TOGGLE NAME</button>
+</body>
+</html>
