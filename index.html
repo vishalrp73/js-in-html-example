@@ -34,7 +34,8 @@
 
         /* fetches inner HTML value of alter-text and checks against if/else
             condition to toggle between texts/colours */
-        let nameText = document.getElementById("alter-text").innerHTML;
+        const nameText = document.getElementById("alter-text").innerHTML;
+        
         if (nameText === 'KERRYN') {
             document.getElementById('alter-text').innerHTML = 'PHOEBE';
             document.getElementById('alter-text').style.color = 'green';
@@ -57,13 +58,11 @@
 
     <!-- This is extremely ugly and we'll learn a better way to render these 
     p tags when you get to react :) -->
-    <div id="hide">
-        <p id="name-0"></p>
-        <p id='name-1'></p>
-        <p id="name-2"></p>
-        <p id="name-3"></p>
-        <p id="name-4"></p>
-    </div>
+    <p id="name-0"></p>
+    <p id='name-1'></p>
+    <p id="name-2"></p>
+    <p id="name-3"></p>
+    <p id="name-4"></p>
 
     <button onclick="changeName()">CHANGE NAME TO SNEHA</button>
     <button onclick="renderListofNames()">RENDER LIST OF NAMES</button>
